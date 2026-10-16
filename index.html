@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Knot &amp; Lopp Co. – Handmade Crochet</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#fff8f3;--card:#fff;--text:#3a2a2e;--muted:#80686d;--accent:#d4607a;--accent2:#f6d7de;--accent-t:#fff;--line:#f0dde0}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1f1618;--card:#2a1e21;--text:#f7e9ec;--muted:#c3a8ae;--accent:#ee8aa1;--accent2:#43282f;--accent-t:#1f1618;--line:#40292e}}
+:root[data-theme="dark"]{--bg:#1f1618;--card:#2a1e21;--text:#f7e9ec;--muted:#c3a8ae;--accent:#ee8aa1;--accent2:#43282f;--accent-t:#1f1618;--line:#40292e}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(70px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Georgia,'Times New Roman',serif;line-height:1.6}
+h1,h2,h3{font-weight:600;margin:0}
+.sans,button,nav a,.tag{font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;padding:12px 20px;gap:12px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:21}
+.logo{font-size:1.3rem;font-weight:700;color:var(--accent)}
+nav{display:flex;gap:18px;align-items:center}
+nav a{color:var(--text);text-decoration:none;font-size:.92rem}
+button{font:inherit;font-size:.92rem;cursor:pointer;border:0;border-radius:999px;padding:9px 18px;background:var(--accent);color:var(--accent-t);font-weight:600}
+button.ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+.wrap{max-width:1000px;margin:auto;padding:0 20px}
+.hero{background:var(--accent2);text-align:center;padding:64px 20px}
+.hero h1{font-size:clamp(2rem,6vw,3.2rem);margin-bottom:10px}
+.hero p{max-width:520px;margin:0 auto 22px;color:var(--muted)}
+section{padding:46px 0}
+.sec-title{text-align:center;margin-bottom:24px;font-size:1.7rem}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 16px;text-align:center;cursor:pointer}
+.cat .ic{font-size:2.6rem}
+.cat h3{margin-top:6px}.cat small{color:var(--muted)}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.filters button.on{background:var(--accent);color:var(--accent-t)}
+.filters button:not(.on){background:transparent;color:var(--text);border:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;display:flex;flex-direction:column;gap:4px}
+.pic{height:140px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:3.4rem}
+.tag{font-size:.72rem;color:var(--accent);text-transform:uppercase;letter-spacing:.05em;margin-top:6px}
+.card small{color:var(--muted)}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:8px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;text-align:center}
+.feat div{padding:10px}.feat .ic{font-size:2rem}
+.about{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.about p{max-width:640px;margin:10px auto;color:var(--muted)}
+.contact{text-align:center}
+.contact a{color:var(--accent);font-family:system-ui,sans-serif}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:28px 20px;font-family:system-ui,sans-serif}
+#cart{position:fixed;top:0;right:0;height:100%;width:min(370px,100%);background:var(--card);border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s;z-index:30;display:flex;flex-direction:column;padding:20px;padding-top:calc(20px + env(safe-area-inset-top,0px));padding-bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+#cart.open{transform:none}
+#items{flex:1;overflow:auto}
+.item{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--line);font-family:system-ui,sans-serif;font-size:.92rem}
+.total{display:flex;justify-content:space-between;font-weight:700;padding:12px 0;font-family:system-ui,sans-serif}
+#wa{display:block;text-align:center;text-decoration:none;background:#25a244;color:#fff;border-radius:999px;padding:11px;font-weight:600;font-family:system-ui,sans-serif}
+.note{font-size:.78rem;color:var(--muted);margin-top:8px;font-family:system-ui,sans-serif}
+.col{width:100%;margin-top:6px;padding:7px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--text);font:inherit;font-size:.85rem}
+.cform{max-width:560px;margin:auto;display:grid;gap:10px}
+.cform input,.cform select,.cform textarea{width:100%;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);font-family:system-ui,sans-serif;font-size:.92rem}
+#cSend{display:block;text-align:center;text-decoration:none;background:#25a244;color:#fff;border-radius:999px;padding:12px;font-weight:600;font-family:system-ui,sans-serif}
+@media(max-width:600px){nav a{display:none}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">🧶 Knot &amp; Lopp Co.</div>
+  <nav>
+    <a href="#home">Home</a><a href="#shop">Shop</a><a href="#custom">Custom</a><a href="#about">About</a><a href="#contact">Contact</a>
+    <button id="open">Cart (<span id="count">0</span>)</button>
+  </nav>
+</header>
+
+<div class="hero" id="home">
+  <h1>Handmade crochet, made with love</h1>
+  <p class="sans">Bags, baskets, baby wear, sweaters, accessories and more, all stitched by hand in the colors you choose.</p>
+  <button onclick="location.hash='shop'">Shop now</button>
+</div>
+
+<section><div class="wrap">
+  <h2 class="sec-title">Shop by category</h2>
+  <div class="cats" id="cats"></div>
+</div></section>
+
+<section id="shop" style="padding-top:0"><div class="wrap">
+  <h2 class="sec-title">Our creations</h2>
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section><div class="wrap feat">
+  <div><div class="ic">✋</div><h3>100% handmade</h3><small class="sans">Every piece is crocheted by hand</small></div>
+  <div><div class="ic">🎨</div><h3>Custom colors</h3><small class="sans">Pick your yarn colors and size</small></div>
+  <div><div class="ic">🎁</div><h3>Gift ready</h3><small class="sans">Packed with care for gifting</small></div>
+</div></section>
+
+<section id="custom"><div class="wrap">
+  <h2 class="sec-title">Custom orders</h2>
+  <p class="sans" style="text-align:center;color:var(--muted);max-width:560px;margin:-10px auto 22px">Have something in mind? Tell us the details and we'll make it just for you. You can send a reference photo on WhatsApp after.</p>
+  <div class="cform">
+    <input id="cName" placeholder="Your name">
+    <select id="cItem" aria-label="Item"></select>
+    <input id="cSize" placeholder="Size (e.g. M, 6-12 months, 30cm)">
+    <input id="cColor" placeholder="Colors you want">
+    <input id="cQty" type="number" min="1" value="1" aria-label="Quantity">
+    <input id="cDate" placeholder="Needed by (date)">
+    <textarea id="cNotes" rows="3" placeholder="Describe your idea..."></textarea>
+    <a id="cSend" href="#" target="_blank" rel="noopener">Send request on WhatsApp</a>
+  </div>
+</div></section>
+
+<section class="about" id="about"><div class="wrap">
+  <h2 class="sec-title">Our story</h2>
+  <p>Knot &amp; Lopp Co. began with one hook, a ball of yarn, and a love for slow, handmade things. Each bag, basket and keychain is made in small batches, so no two are exactly alike.</p>
+  <p>Want something special? Send us your idea and we will make it for you.</p>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+  <h2 class="sec-title">Get in touch</h2>
+  <p class="sans">Custom orders, questions, or bulk gifts: message us.</p>
+  <p><a id="waLink" href="#" target="_blank" rel="noopener">💬 WhatsApp</a> · <a href="#">📸 Instagram</a> · <a href="#">✉️ Email</a></p>
+</div></section>
+
+<footer>© Knot &amp; Lopp Co. · Shipping · Returns · Care guide</footer>
+
+<aside id="cart" aria-label="Cart">
+  <div style="display:flex;justify-content:space-between;align-items:center"><h2 style="margin:0">Your cart</h2><button class="ghost" id="close">Close</button></div>
+  <div id="items"></div>
+  <div class="total"><span>Total</span><span id="total"></span></div>
+  <a id="wa" href="#" target="_blank" rel="noopener">Order on WhatsApp</a>
+  <p class="note">Want a color that's not listed? Choose "Custom" and tell us on WhatsApp. We confirm your order and payment there.</p>
+</aside>
+
+<script>
+// ===== EDIT THESE =====
+const SHOP="Knot & Lopp Co.";
+const COLORS=["Cream","White","Blush pink","Baby blue","Sage green","Mustard","Terracotta","Lavender","Black","Custom (tell us)"];
+const WHATSAPP="971500000000"; // your number, country code first, no + or spaces
+const CUR="AED";
+const CATS=[
+ {id:"keychains",name:"Keychains",icon:"🔑",bg:"#fbd9e2"},
+ {id:"baskets",name:"Baskets",icon:"🧺",bg:"#fde7c8"},
+ {id:"handbags",name:"Handbags",icon:"👜",bg:"#d9e8f5"},
+ {id:"baby",name:"Baby Shoes & Headbands",icon:"👶",bg:"#e3f1e0"},
+ {id:"hair",name:"Bow Bands",icon:"🎀",bg:"#fbe0f0"},
+ {id:"clothing",name:"Sweaters",icon:"🧥",bg:"#e6e0f5"},
+ {id:"bottle",name:"Bottle Covers",icon:"🥤",bg:"#d8efef"}
+];
+const PRODUCTS=[
+ {id:1,cat:"keychains",name:"Strawberry Keychain",desc:"Cute fruit charm",price:15,icon:"🍓"},
+ {id:2,cat:"keychains",name:"Flower Keychain",desc:"Mini daisy bloom",price:12,icon:"🌼"},
+ {id:3,cat:"keychains",name:"Bear Keychain",desc:"Soft teddy charm",price:18,icon:"🧸"},
+ {id:4,cat:"keychains",name:"Heart Keychain",desc:"Choose your color",price:10,icon:"❤️"},
+ {id:5,cat:"baskets",name:"Storage Basket",desc:"Sturdy, medium size",price:55,icon:"🧺"},
+ {id:6,cat:"baskets",name:"Round Plant Basket",desc:"Fits a 15cm pot",price:40,icon:"🪴"},
+ {id:7,cat:"baskets",name:"Nursery Basket",desc:"Soft cotton yarn",price:65,icon:"🍼"},
+ {id:8,cat:"handbags",name:"Tote Bag",desc:"Everyday carry",price:120,icon:"👜"},
+ {id:9,cat:"handbags",name:"Mini Shoulder Bag",desc:"Lined, with zip",price:95,icon:"👛"},
+ {id:10,cat:"handbags",name:"Bucket Bag",desc:"Drawstring closure",price:110,icon:"🛍️"},
+ {id:11,cat:"handbags",name:"Granny Square Bag",desc:"Colorful patchwork",price:130,icon:"🎨"},
+ {id:12,cat:"baby",name:"Baby Booties",desc:"Soft, 0-12 months",price:35,icon:"👶"},
+ {id:13,cat:"baby",name:"Baby Headband",desc:"Stretchy and gentle",price:20,icon:"👒"},
+ {id:14,cat:"hair",name:"Bow Band",desc:"Cute crochet bow",price:18,icon:"🎀"},
+ {id:15,cat:"hair",name:"Bow Scrunchie Set",desc:"Set of 2",price:25,icon:"🎗️"},
+ {id:16,cat:"clothing",name:"Crochet Sweater",desc:"Made to your size",price:150,icon:"🧥"},
+ {id:17,cat:"clothing",name:"Kids Sweater",desc:"Cozy and soft",price:90,icon:"🧶"},
+ {id:18,cat:"bottle",name:"Bottle Cover",desc:"With carry strap",price:22,icon:"🥤"},
+ {id:19,cat:"bottle",name:"Tumbler Sleeve",desc:"Keeps drinks cozy",price:25,icon:"☕"}
+];
+// ======================
+const $=id=>document.getElementById(id);
+const money=n=>CUR+" "+n;
+const catOf=id=>CATS.find(c=>c.id===id);
+let cart={},filter="all";
+try{cart=JSON.parse(localStorage.getItem("kl_cart")||"{}")}catch(e){}
+function drawCats(){
+  $("cats").innerHTML=CATS.map(c=>`<div class="cat" data-cat="${c.id}"><div class="ic">${c.icon}</div><h3>${c.name}</h3><small class="sans">${PRODUCTS.filter(p=>p.cat===c.id).length} items</small></div>`).join("");
+}
+function drawFilters(){
+  const all=[{id:"all",name:"All"}].concat(CATS);
+  $("filters").innerHTML=all.map(c=>`<button class="${filter===c.id?"on":""}" data-f="${c.id}">${c.name}</button>`).join("");
+}
+function drawGrid(){
+  $("grid").innerHTML=PRODUCTS.filter(p=>filter==="all"||p.cat===filter).map(p=>{
+    const c=catOf(p.cat);
+    return `<div class="card"><div class="pic" style="background:${c.bg}">${p.icon}</div><div class="tag">${c.name}</div><h3>${p.name}</h3><small class="sans">${p.desc}</small><select class="col" id="col${p.id}" aria-label="Color">${COLORS.map(x=>`<option>${x}</option>`).join("")}</select><div class="row"><strong class="sans">${money(p.price)}</strong><button data-add="${p.id}">Add</button></div></div>`}).join("");
+}
+function drawCart(){
+  let n=0,t=0,h="",msg=`Hi ${SHOP}! I'd like to order:%0A`;
+  for(const [k,q] of Object.entries(cart)){const [id,col="Any color"]=k.split("|");const p=PRODUCTS.find(x=>x.id==id);if(!p||!q)continue;n+=q;t+=q*p.price;
+    h+=`<div class="item"><span>${p.name}<br><small>${col} · ${money(p.price)}</small></span><span><button class="ghost" data-d="-1" data-k="${k}">−</button> ${q} <button class="ghost" data-d="1" data-k="${k}">+</button></span></div>`;
+    msg+=encodeURIComponent(`${q} x ${p.name} - ${col} (${money(p.price*q)})`)+"%0A";}
+  msg+=encodeURIComponent("Total: "+money(t));
+  $("items").innerHTML=h||'<p class="note">Your cart is empty.</p>';
+  $("count").textContent=n;$("total").textContent=money(t);
+  $("wa").href=n?`https://wa.me/${WHATSAPP}?text=${msg}`:"#";
+  $("wa").style.opacity=n?1:.5;
+  try{localStorage.setItem("kl_cart",JSON.stringify(cart))}catch(e){}
+}
+document.addEventListener("click",e=>{
+  const d=e.target.closest("[data-cat],[data-f],[data-add],[data-d]");if(!d)return;
+  const a=d.dataset;
+  if(a.cat){filter=a.cat;drawFilters();drawGrid();location.hash="shop"}
+  if(a.f){filter=a.f;drawFilters();drawGrid()}
+  if(a.add){const k=a.add+"|"+$("col"+a.add).value;cart[k]=(cart[k]||0)+1;drawCart()}
+  if(a.d){cart[a.k]=Math.max(0,(cart[a.k]||0)+Number(a.d));drawCart()}
+});
+$("open").onclick=()=>$("cart").classList.add("open");
+$("close").onclick=()=>$("cart").classList.remove("open");
+$("waLink").href="https://wa.me/"+WHATSAPP;
+$("cItem").innerHTML=CATS.map(c=>`<option>${c.name}</option>`).join("")+"<option>Something else</option>";
+function upd(){
+  const v=id=>$(id).value.trim()||"-";
+  const m=`Hi ${SHOP}! Custom order request:\nName: ${v("cName")}\nItem: ${$("cItem").value}\nSize: ${v("cSize")}\nColors: ${v("cColor")}\nQuantity: ${v("cQty")}\nNeeded by: ${v("cDate")}\nDetails: ${v("cNotes")}`;
+  $("cSend").href=`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(m)}`;
+}
+document.querySelectorAll(".cform input,.cform select,.cform textarea").forEach(e=>{e.oninput=upd;e.onchange=upd});
+upd();
+drawCats();drawFilters();drawGrid();drawCart();
+</script>
+</body>
+</html>
